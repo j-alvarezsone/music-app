@@ -11,10 +11,9 @@
       <div class="text-white main-header-content">
         <h1 class="font-bold text-5xl mb-5">Listen to Great Music!</h1>
         <p class="w-full md:w-8/12 mx-auto">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus et dolor
-          mollis, congue augue non, venenatis elit. Nunc justo eros, suscipit ac aliquet
-          imperdiet, venenatis et sapien. Duis sed magna pulvinar, fringilla lorem eget,
-          ullamcorper urna.
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus et dolor mollis, congue augue
+          non, venenatis elit. Nunc justo eros, suscipit ac aliquet imperdiet, venenatis et sapien. Duis sed
+          magna pulvinar, fringilla lorem eget, ullamcorper urna.
         </p>
       </div>
     </div>
@@ -385,9 +384,7 @@
           <span class="song-artist">Artist</span>
         </div>
         <!-- Scrub Container  -->
-        <span
-          class="block w-full h-2 rounded m-1 mt-2 bg-gray-200 relative cursor-pointer"
-        >
+        <span class="block w-full h-2 rounded m-1 mt-2 bg-gray-200 relative cursor-pointer">
           <!-- Player Ball -->
           <span class="absolute top-neg-8 text-gray-800 text-lg" style="left: 50%">
             <i class="fas fa-circle"></i>
@@ -417,6 +414,9 @@ export default {
   components: {
     AppHeader,
     AuthModal,
+  },
+  created() {
+    this.$store.dispatch('init_login');
   },
 };
 </script>
