@@ -3,14 +3,19 @@ import Music from './Music.vue';
 import router from './router';
 import store from './store';
 import VeeValidatePlugin from './includes/validation';
-import './includes/firebase';
+import { auth } from './includes/firebase';
 import './assets/tailwind.css';
 import './assets/main.css';
 
-const app = createApp(Music);
+let app;
+auth.onAuthStateChanged(() => {
+  if (!app) {
+    app = createApp(Music);
 
-app.use(store);
-app.use(router);
-app.use(VeeValidatePlugin);
+    app.use(store);
+    app.use(router);
+    app.use(VeeValidatePlugin);
 
-app.mount('#app');
+    app.mount('#app');
+  }
+});
