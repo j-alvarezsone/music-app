@@ -13,6 +13,7 @@ module.exports = {
     'linebreak-style': 0,
     'max-len': 'off',
     'vue/comment-directive': 0,
+    'object-curly-newline': 'off',
   },
   overrides: [
     {
