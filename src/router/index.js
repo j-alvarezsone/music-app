@@ -43,7 +43,7 @@ const router = createRouter({
   linkExactActiveClass: 'text-yellow-500',
 });
 
-router.beforeEach((to, from, next) => {
+router.beforeEach((to, _from, next) => {
   // console.log(to.matched);
   // We check if the current route requires authentication by using these some function.
   if (!to.matched.some((record) => record.meta.requiresAuth)) {
