@@ -14,6 +14,7 @@ module.exports = {
     'max-len': 'off',
     'vue/comment-directive': 0,
     'object-curly-newline': 'off',
+    'operator-linebreak': ['error', 'after'],
   },
   overrides: [
     {
