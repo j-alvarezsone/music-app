@@ -35,6 +35,7 @@
               rounded
             "
             placeholder="Enter Song Title"
+            @input="upDateUnsavedFlag(true)"
           />
           <ErrorMessage class="text-red-600" name="modified_name" />
         </div>
@@ -56,6 +57,7 @@
               rounded
             "
             placeholder="Enter Genre"
+            @input="upDateUnsavedFlag(true)"
           />
           <ErrorMessage class="text-red-600" name="genre" />
         </div>
@@ -97,6 +99,9 @@ export default {
       type: Function,
       required: true,
     },
+    upDateUnsavedFlag: {
+      type: Function,
+    },
   },
   data() {
     return {
@@ -128,6 +133,8 @@ export default {
       }
 
       this.updateSong(this.index, values);
+      this.upDateUnsavedFlag(false);
+      console.log(this.upDateUnsavedFlag);
 
       this.in_submission = false;
       this.alert_variant = 'bg-green-500';
