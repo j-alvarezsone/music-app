@@ -27,7 +27,13 @@
       <div class="bg-white rounded border border-gray-200 relative flex flex-col">
         <div class="px-6 pt-6 pb-5 font-bold border-b border-gray-200">
           <!-- Comment Count -->
-          <span class="card-title">Comments ({{ song.comment_count }})</span>
+          <span class="card-title">
+            {{
+              $tc('song.comment_count', song.comment_count, {
+                count: song.comment_count,
+              })
+            }}</span
+          >
           <i class="fa fa-comments float-right text-green-400 text-2xl"></i>
         </div>
         <div class="p-6">
@@ -153,7 +159,7 @@ export default {
   methods: {
     ...mapActions(['newSong']),
     async addComment(values, { resetForm }) {
-      this.comment_show_alert = true;
+      this.comment_in_submission = true;
       this.comment_show_alert = true;
       this.comment_alert_variant = 'bg-blue-500';
       this.comment_alert_message = 'Please wait! Your comment is being submitted';
@@ -170,7 +176,7 @@ export default {
 
       this.song.comment_count += 1;
       await songsCollection.doc(this.$route.params.id).update({
-        comment_count: this.song_comment_count,
+        comment_count: this.song.comment_count,
       });
 
       this.getComments();
@@ -182,11 +188,11 @@ export default {
       resetForm();
     },
     async getComments() {
-      const snapShots = await commentsCollection.where('sid', '==', this.$route.params.id).get();
+      const snapshots = await commentsCollection.where('sid', '==', this.$route.params.id).get();
 
       this.comments = [];
 
-      snapShots.forEach((doc) => [
+      snapshots.forEach((doc) => [
         this.comments.push({
           docID: doc.id,
           ...doc.data(),
@@ -199,6 +205,7 @@ export default {
       if (newVal === this.$route.query.sort) {
         return;
       }
+
       this.$router.push({
         query: {
           sort: newVal,
