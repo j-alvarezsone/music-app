@@ -1,4 +1,3 @@
-import mapActions from 'vuex';
 <template>
   <div class="fixed bottom-0 left-0 bg-white p-5 pb-4 text-left align-top w-full h-16">
     <div class="relative">
