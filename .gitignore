@@ -29,3 +29,5 @@ pnpm-debug.log*
 
 # console
 antigen.zsh
+
+.vercel
